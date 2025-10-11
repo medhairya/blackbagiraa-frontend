@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Black Bagiraa(200 ml)",
+        "image": "/bagira1.jpg",
+        "MRP": 20,
+        "retailPrice": 16,
+        "scheme": "Buy 1 Get 1 Free",
+        "category": "Energy Drinks"
+    },
+    {
+        "name": "Black Bagiraa(200 ml)",
+        "image": "/bagira2.jpg",
+        "MRP": 20,
+        "retailPrice": 16,
+        "scheme": "Buy 1 Get 1 Free",
+        "category": "Energy Drinks"
+    },
+    {
+        "name": "Black Bagiraa(200 ml)",
+        "image": "/bagira3.jpg",
+        "MRP": 20,
+        "retailPrice": 16,
+        "scheme": "Buy 1 Get 1 Free",
+        "category": "Energy Drinks"
+    },
+    {
+        "name": "Black Bagiraa(200 ml)",
+        "image": "/bagira4.jpg",
+        "MRP": 20,
+        "retailPrice": 16,
+        "scheme": "Buy 1 Get 1 Free",
+        "category": "Energy Drinks"
+    },
+    {
+        "name": "Black Bagiraa(200 ml)",
+        "image": "/bagira5.jpg",
+        "MRP": 20,
+        "retailPrice": 16,
+        "scheme": "Buy 1 Get 1 Free",
+        "category": "Cold Drinks"
+    },
+    {
+        "name": "Black Bagiraa(200 ml)",
+        "image": "/bagira6.jpg",
+        "MRP": 20,
+        "retailPrice": 16,
+        "scheme": "Buy 1 Get 1 Free",
+        "category": "Cold Drinks"
+    },
+    {
+        "name": "Black Bagiraa(200 ml)",
+        "image": "/bagira7.png",
+        "MRP": 20,
+        "retailPrice": 16,
+        "scheme": "Buy 1 Get 1 Free",
+        "category": "Cold Drinks"
+    }
+]
