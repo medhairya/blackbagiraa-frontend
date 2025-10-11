@@ -1,7 +1,7 @@
 import AuthProtected from "@/middlewares/AuthProtected";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import Orders from "./pages/Orders/Orders";
-import Layout from "./components/layout";
+import Layout from "./components/Layout.jsx";
 import Products from "./pages/products/Products";
 import CategoryPage from "./pages/Category/Category";
 
