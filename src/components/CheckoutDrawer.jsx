@@ -17,12 +17,20 @@ const CheckoutDrawer = ({ open, setOpen, cart, totalAmount }) => {
   const closeButtonRef = useRef(null)
   
   const handlePayOnDelivery = async() => {
-    console.log(Object.fromEntries(cart))
     setIsAnimating(true)
     
     try {
+      // Send only productId and quantity to reduce payload size
+      const items = {};
+      cart.forEach((item, productId) => {
+        items[productId] = {
+          productId: item._id || productId,
+          quantity: item.quantity || 1
+        };
+      });
+      
       const response = await api.post('api/products/placeOrder', {
-        items: Object.fromEntries(cart),
+        items: items,
         totalAmount: totalAmount,
         paymentMethod: "Pay on Delivery",
       })
