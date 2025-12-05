@@ -19,10 +19,19 @@ const useCart = () => {
     // Set new timeout to debounce API calls
     saveTimeoutRef.current = setTimeout(async () => {
       try {
-        const cart = Object.fromEntries(cartMap);
+        // Send only productId and quantity to reduce payload size
+        const cart = {};
+        cartMap.forEach((item, productId) => {
+          cart[productId] = {
+            productId: item._id || productId,
+            quantity: item.quantity || 1
+          };
+        });
+        
         const response = await api.post('api/products/saveCart', { cart });
         if (response.success) {
-          toast.success(response.message);
+          // Don't show toast on every save to avoid spam
+          // toast.success(response.message);
         } else {
           toast.error(response.message);
         }
@@ -66,14 +75,29 @@ const useCart = () => {
       }
       return newCart;
     });
+  };
 
+  const removeItemCompletely = (productId) => {
+    setCart(prevCart => {
+      const newCart = new Map(prevCart);
+      if (newCart.has(productId)) {
+        newCart.delete(productId);
+        saveCartInDatabase(newCart);
+      }
+      return newCart;
+    });
   };
   useEffect(() => {
     const fetchProducts = async () => {
       const cartResponse = await api.get('api/products/fetchCart');
       if(cartResponse.success){
-         if(cartResponse.cartData){
-          const hashMap = new Map(Object.entries(cartResponse.cartData?.items));
+         // Handle new response format with items populated from backend
+         if(cartResponse.items && Object.keys(cartResponse.items).length > 0){
+          const hashMap = new Map(Object.entries(cartResponse.items));
+          setCart(hashMap);
+         } else if(cartResponse.cartData?.items){
+          // Fallback for old format (shouldn't happen but for safety)
+          const hashMap = new Map(Object.entries(cartResponse.cartData.items));
           setCart(hashMap);
          }
       }
@@ -107,7 +131,7 @@ const useCart = () => {
   }, []);
   
 
-  return {cart,addToCart,removeFromCart};
+  return {cart,addToCart,removeFromCart,removeItemCompletely};
  
 }
 

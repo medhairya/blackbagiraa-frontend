@@ -12,7 +12,7 @@ const Cart = () => {
   
   const [totalAmount, setTotalAmount] = useState(0)
   const [open, setOpen] = useState(false)
-  const { cart, addToCart, removeFromCart } = useCart();
+  const { cart, addToCart, removeFromCart, removeItemCompletely } = useCart();
   const navigate = useNavigate();
 
   const calculateTotal = () => {
@@ -62,7 +62,7 @@ const Cart = () => {
                         </Badge>
                       )} */}
                     </div>
-                    <Button variant="ghost" size="icon" onClick={() => removeItem(item._id)}>
+                    <Button variant="ghost" size="icon" onClick={() => removeItemCompletely(item._id)}>
                       <Trash2 className="h-5 w-5" />
                     </Button>
                   </div>
