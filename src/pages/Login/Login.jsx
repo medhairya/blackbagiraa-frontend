@@ -57,7 +57,7 @@ const Login = () => {
           if(response.role === 'admin'){
             navigate(`${import.meta.env.VITE_ADMIN}/overview`);
           }else{
-            navigate('/home');
+            navigate('/product/Our Collection');
           }
           
         localStorage.setItem("authToken", JSON.stringify({
